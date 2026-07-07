@@ -1,0 +1,10 @@
+numpy<2.0.0
+scipy<1.14.0
+xarray==2026.4.0
+pandas==3.0.3
+matplotlib==3.11.0
+scikit-learn==1.9.0
+joblib==1.5.3
+xgboost==3.3.0
+arlpy==1.9.1
+netCDF4==1.7.4
