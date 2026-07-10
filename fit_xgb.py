@@ -33,8 +33,11 @@ from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
 from xgboost import XGBRegressor
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
-HERE = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.join(HERE, "Data", "BellhopData", "bellhop_analytic.csv")
+try:
+    HERE = os.path.dirname(os.path.abspath(__file__))
+except NameError:
+    HERE = os.getcwd()  # __file__ is undefined in notebooks/interactive sessions
+DATA_PATH = os.path.join(HERE, "Data", "BellhopData", "bellhop_monthly_original.csv")
 MODEL_PATH = os.path.join(HERE, "Data", "BellhopData", "tl_residual_xgb_model.joblib")
 IMPORTANCE_PATH = os.path.join(HERE, "Data", "BellhopData", "tl_residual_xgb_importance.csv")
 FIG_DIR = os.path.join(HERE, "Figures")
