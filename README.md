@@ -14,10 +14,47 @@ Our current best effort looks like this:
 This project looks to improve the performance of this correction model.
 
 ## fit_xgb.py
-An xgboost model which predicts the residual transmission loss
+An xgboost model which predicts the residual transmission loss of the BELLHOP & analytical model. 
+
+
+**Input:** 'Data/BellhopData/bellhop_monthly_original.csv'
+
+
+**Outputs:**
+Model performance with plot
 
 ## data_loading_with_exisitng_datapoints.ipynb
 Using a convolutional autoencoder, and data from GEBCO, representing the bathymetry of the seabed floor with a latent dimension of 8, across the paths that the sound travels across for the source-receiver pairs were interested in. 8 features then extracted to be used as a feature for the xgb model.
+**Inputs:**
+_GEBCO bathymetry hardcoded local apth
+-'Data/BellhopData?bellhop_monthly_original.csv'
 
-## fit_mlp.ipynb
-An MLP to predict transmission loss. Then an end-to-end encoder which takes in the same features as the previous one in data_loading_with_exisitng_datapoints.ipynb, compress, and feeds into the MLP, trying to minimise model loss rather then reconstruction loss.
+
+**Outputs:**
+
+-'results/path_embeddings.csv'
+
+-Bathymetry embeddings
+
+-"features0 to features7'; features which can be used for a model
+
+
+## Encoder_into_MLP
+An MLP to predict the same residual transmission losses XGBoost. Then an end-to-end encoder which takes in the same features as the previous one in data_loading_with_exisitng_datapoints.ipynb, compress, and feeds into the MLP, trying to minimise model loss rather then reconstruction loss.
+
+**Input:**
+
+'Data/BellhopData/bellhop_monthly_original.csv'
+
+GEBCO bathymetry NetCDF
+
+**Outputs:**
+
+'Data/BellhopData/tl_residual_xgb_model.joblib`
+
+Model performance
+
+
+
+
+
