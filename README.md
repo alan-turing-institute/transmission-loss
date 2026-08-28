@@ -12,3 +12,12 @@ Our current best effort looks like this:
 - We then fit a model (e.g. XGBoost) to the residuals, using all available input data to create a correction to our analytic model.
   
 This project looks to improve the performance of this correction model.
+
+## fit_xgb.py
+An xgboost model which predicts the residual transmission loss
+
+## data_loading_with_exisitng_datapoints.ipynb
+Using a convolutional autoencoder, and data from GEBCO, representing the bathymetry of the seabed floor with a latent dimension of 8, across the paths that the sound travels across for the source-receiver pairs were interested in. 8 features then extracted to be used as a feature for the xgb model.
+
+## fit_mlp.ipynb
+An MLP to predict transmission loss. Then an end-to-end encoder which takes in the same features as the previous one in data_loading_with_exisitng_datapoints.ipynb, compress, and feeds into the MLP, trying to minimise model loss rather then reconstruction loss.
